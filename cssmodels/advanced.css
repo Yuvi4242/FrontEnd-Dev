@@ -1,0 +1,30 @@
+/* Attribute selector */
+a[href^="https"] {
+  color: green;
+}
+
+/* Pseudo-class */
+a:hover {
+  text-decoration: underline;
+}
+
+/* Input focus */
+input:focus {
+  outline: 2px solid blue;
+}
+
+/* nth-child */
+li:nth-child(2) {
+  color: red;
+}
+
+/* Pseudo-element */
+h2::after {
+  content: " ✨";
+  color: gold;
+}
+
+/* Descendant selector */
+ul li {
+  list-style: square;
+}

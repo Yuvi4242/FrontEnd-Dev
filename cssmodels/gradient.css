@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+header, footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  position: fixed;
+  width: 100%;
+}
+
+header { top: 0; }
+footer { bottom: 0; }
+
+main {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.linear {
+  height: 50vh;
+  background: linear-gradient(to right, skyblue, violet);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radial {
+  height: 50vh;
+  background: radial-gradient(circle, yellow, orange, red);
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

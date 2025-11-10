@@ -1,0 +1,39 @@
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.one {
+  width: 100px;
+  height: 100px;
+  background: steelblue;
+}
+
+.two {
+  width: 50%;
+  min-height: 80px;
+  background: seagreen;
+}
+
+.three {
+  width: 120px;
+  height: 20vh;
+  background: darkorange;
+  overflow: hidden;
+}
