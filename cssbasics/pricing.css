@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    text-align: center;
+    padding: 2em;
+}
+
+/* Header */
+header h1 {
+    margin-bottom: 1em;
+}
+
+/* Pricing Container Flexbox */
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+/* Plan Box */
+.plan {
+    background-color: #ffffff;
+    border: 2px solid #bdc3c7;
+    border-radius: 10px;
+    padding: 2em;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Hover Effect */
+.plan:hover {
+    transform: scale(1.05);
+    background-color: #ecf0f1;
+}
+
+/* Most Popular Plan */
+.plan.popular {
+    border: 2px solid #e67e22;
+    background-color: #fdf2e9;
+}
+
+/* Plan Elements */
+.plan h2 {
+    margin-top: 0;
+}
+
+.plan ul {
+    list-style: none;
+    padding: 0;
+    margin: 1em 0;
+}
+
+.plan .price {
+    font-size: 1.5em;
+    margin: 1em 0;
+}
+
+.plan .btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.plan .btn:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 700px) {
+    .pricing-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

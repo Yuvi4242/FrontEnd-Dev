@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    line-height: 1.8;
+    background-color: #f7f7f7;
+    color: #333;
+    padding: 2em;
+}
+
+/* Header */
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+header h3 {
+    margin-top: 0.2em;
+    font-weight: normal;
+    color: #555;
+}
+
+/* Article Paragraphs */
+article p {
+    margin: 1.5em 0;
+}
+
+/* First Letter & First Line */
+article p::first-letter {
+    font-size: 2em;
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+article p::first-line {
+    font-weight: bold;
+}
+
+/* Highlighted Words */
+mark {
+    background-color: #ffeb3b;
+    color: #000;
+}
+
+/* Blockquote Styling */
+blockquote {
+    border-left: 4px solid #3498db;
+    background-color: #ecf0f1;
+    padding: 1em 1.5em;
+    margin: 2em 0;
+    font-style: italic;
+}

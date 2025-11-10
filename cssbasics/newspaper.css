@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    font-family: 'Times New Roman', serif;
+    background-color: #f7f7f7;
+    padding: 2em;
+}
+
+/* Header */
+header h1 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+/* Columns */
+main {
+    column-count: 3;
+    column-gap: 2em;
+    column-rule: 1px solid #ccc;
+    text-align: justify;
+}
+
+/* Headline spans all columns */
+.headline {
+    column-span: all;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+/* Float Image */
+.float-left {
+    float: left;
+    width: 150px;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+/* Highlight */
+mark {
+    background-color: #ffeb3b;
+}
