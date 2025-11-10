@@ -1,0 +1,16 @@
+/* Filter Comparison Layout */
+*{box-sizing:border-box}
+body{font-family:system-ui,Arial;margin:0;padding:2rem;background:#fff}
+.compare{display:flex;gap:1rem;align-items:center;justify-content:center}
+.compare figure{margin:0;text-align:center}
+.compare img{width:420px;height:280px;object-fit:cover;border-radius:8px;transition:filter .4s ease,opacity .4s ease}
+.compare img.filtered{filter:brightness(.6) contrast(120%)}
+
+/* On hover, remove filter */
+.compare figure:hover img.filtered{filter:none}
+
+/* Stack vertically below 700px */
+@media (max-width:700px){
+  .compare{flex-direction:column}
+  .compare img{width:100%;height:auto}
+}

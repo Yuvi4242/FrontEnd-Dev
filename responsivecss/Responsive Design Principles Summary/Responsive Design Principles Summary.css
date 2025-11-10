@@ -1,0 +1,7 @@
+/* Principles summary using Grid */
+*{box-sizing:border-box}
+body{font-family:system-ui,Arial;margin:0;padding:2rem;background:#f6f8fb}
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.box{background:#fff;padding:1rem;border-radius:8px;transition:background .2s ease,color .2s ease}
+.box:hover{background:linear-gradient(135deg,#4facfe,#00f2fe);color:#fff}
+@media (max-width:600px){.principles{grid-template-columns:1fr}}

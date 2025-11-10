@@ -1,0 +1,28 @@
+/* Responsive Image Filter Gallery
+   - Uses CSS Grid
+   - Each image gets a different filter; on hover the filter is removed
+*/
+*{box-sizing:border-box}
+body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial;margin:0;padding:1rem;display:flex;flex-direction:column;min-height:100vh}
+header{text-align:center;margin-bottom:1rem}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;align-items:start}
+figure{margin:0;display:flex;flex-direction:column;gap:.5rem}
+figure img{width:100%;height:220px;object-fit:cover;border-radius:8px;transition:filter .4s ease,transform .3s ease}
+figure figcaption{text-align:center;font-size:.95rem}
+
+/* Different filters by index */
+figure:nth-child(1) img{filter:blur(3px)}
+figure:nth-child(2) img{filter:grayscale(100%)}
+figure:nth-child(3) img{filter:sepia(80%)}
+figure:nth-child(4) img{filter:brightness(.6)}
+figure:nth-child(5) img{filter:contrast(140%)}
+figure:nth-child(6) img{filter:hue-rotate(90deg)}
+
+/* Remove filter on hover */
+figure:hover img{filter:none;transform:scale(1.02)}
+
+/* Stack to single column below 600px */
+@media (max-width:600px){
+  .gallery{grid-template-columns:1fr}
+  figure img{height:300px}
+}
