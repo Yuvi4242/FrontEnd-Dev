@@ -1,0 +1,23 @@
+body {
+  font-family: Arial;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.box {
+  width: 150px;
+  padding: 20px;
+  border: 5px solid black;
+  background: lightblue;
+}
+
+.borderbox {
+  box-sizing: border-box;
+  background: lightgreen;
+}

@@ -1,0 +1,48 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial;
+}
+
+.container {
+  display: flex;
+  gap: 40px;
+}
+
+.box {
+  width: 50px;
+  height: 50px;
+  background: royalblue;
+}
+
+.move {
+  animation: slide 2s infinite alternate ease-in-out;
+}
+
+.bounce {
+  background: orange;
+  animation: bounce 1s infinite alternate ease-in-out;
+}
+
+.text {
+  font-size: 18px;
+  animation: colorchange 3s infinite;
+}
+
+@keyframes slide {
+  from { transform: translateX(0); }
+  to { transform: translateX(80px); }
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50px); }
+}
+
+@keyframes colorchange {
+  0% { color: red; }
+  50% { color: blue; }
+  100% { color: green; }
+}

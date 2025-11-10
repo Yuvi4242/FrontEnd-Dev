@@ -1,0 +1,17 @@
+/* Element selector */
+p { color: black; }
+
+/* Class selector */
+.note { color: blue; }
+
+/* ID selector */
+#intro { color: green; }
+
+/* Attribute selector */
+a[target="_blank"] { color: red; }
+
+/* Descendant selector */
+ul li { color: purple; }
+
+/* Footer */
+footer { margin-top: 20px; text-align: center; }

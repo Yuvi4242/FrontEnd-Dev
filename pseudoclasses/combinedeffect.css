@@ -1,0 +1,31 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background: royalblue;
+  color: white;
+  box-shadow: 2px 2px 5px gray;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background: seagreen;
+}
+
+button:active {
+  transform: scale(0.95);
+}

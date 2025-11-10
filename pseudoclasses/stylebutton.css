@@ -1,0 +1,28 @@
+body {
+  font-family: Arial;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.primary { background: royalblue; color: white; }
+.secondary { background: gray; color: white; }
+.outline { border: 2px solid royalblue; color: royalblue; background: white; }
+
+button:hover:not(:disabled) { transform: scale(1.05); }
+button:focus { outline: 2px solid orange; }
+button:disabled { background: lightgray; cursor: not-allowed; }
