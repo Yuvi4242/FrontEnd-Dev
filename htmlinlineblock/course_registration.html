@@ -1,0 +1,65 @@
+<!-- course_registration.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Course Registration</title>
+</head>
+<body>
+  <h1>Course Registration</h1>
+
+  <!-- Fieldset groups related form controls -->
+  <form method="post" action="#">
+    <fieldset>
+      <legend>Student Details</legend>
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required><br><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+    </fieldset>
+
+    <fieldset>
+      <legend>Course Selection</legend>
+      <label for="course">Choose Course:</label>
+      <select id="course" name="course" required>
+        <option value="" disabled selected>Select a course</option>
+        <option value="web">Web Development</option>
+        <option value="ml">Machine Learning</option>
+        <option value="ds">Data Science</option>
+      </select>
+    </fieldset>
+
+    <p><button type="submit">Register</button></p>
+  </form>
+
+  <!-- Table: Available course schedules -->
+  <h2>Available Schedules</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>Time</th>
+        <th>Instructor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Monday</td>
+        <td>10:00 - 12:00</td>
+        <td>Dr. A</td>
+      </tr>
+      <tr>
+        <td>Wednesday</td>
+        <td>14:00 - 16:00</td>
+        <td>Prof. B</td>
+      </tr>
+      <tr>
+        <td>Saturday</td>
+        <td>09:00 - 12:00</td>
+        <td>Ms. C</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
