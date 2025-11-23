@@ -1,139 +1,163 @@
-# FrontEnd-Dev
+🎨 Frontend_Dev Repository
+🚀 Frontend Development – Complete Learning Repository
 
-🎨 Bridge_Lab_3D — Frontend Development Repository
+This repository documents my daily learning progress, hands-on assignments, and practical implementations for the Frontend Development module under the guidance of Mr. Deepak Prasad and Mr. Sahil Kumar.
 
-📚 A journey through structured learning, hands-on practice, and real-world frontend development guided by
-Mr. Deepak Prasad & Mr. Sahil Kumar
+Every topic is practiced in a separate branch to maintain clean version control, structured learning, and clear progress tracking.
 
-🧭 Overview
+📘 Overview
 
-This repository documents my daily progress, assignments, and practical implementations throughout the Frontend Development module.
-Each topic is developed on a dedicated Git branch to maintain clear version control, organization, and traceability across all stages of learning.
+This course builds the foundations of modern frontend engineering — starting from HTML, moving through CSS, Flexbox, Grid, Animations, Bootstrap, and finally Responsive Web Design.
 
-🚀 Course Roadmap
+✨ Each concept is implemented through assignments, classwork, and practical exercises.
 
-From structure to style — mastering the core of modern frontend engineering.
+🧩 Branch Commit History Snapshot
+| * (origin/bootstrap, bootstrap) [Yuvraj Singh] assignment added
+| * [Yuvraj Singh] lecture practice and learnings added
+|/
+| * (HEAD -> main, origin/main, origin/HEAD) [Yuvraj] updated readme.md
+|/
+| * (origin/responsive-css, responsive-css) [Yuvraj Singh] assignment added
+|/
+| * (origin/pseudo-classes, pseudo-classes) [Yuvraj Singh] assignment added
+|/  
+| * (origin/css-model, css-model) [Yuvraj Singh] assignment added
+|/  
+* (HEAD -> main, origin/main, origin/HEAD) [Yuvraj] Updated README
+* [Yuvraj] updated readme.md
+| * (origin/css-Flexbox-and-Grid, css-Flexbox-and-Grid) [Yuvraj Singh] assignment added
+|/  
+| * (origin/css-basics, css-basics) [Yuvraj Singh] assignment5 added
+|/
+| * (origin/html-iframes, html-iframes) [Yuvraj Singh] assignment4 added
+| * (origin/html-block-and-inline-elements, html-block-and-inline-elements) [Yuvraj Singh] assignment3 added
+|/
+| * (origin/HTML, HTML) [Yuvraj Singh] assignment2 added
+|/
+| * (origin/Intro-to-web-dev, Intro-to-web-dev) [Yuvraj Singh] assignment added
+|/
+* initial commit
+
+🛣️ Learning Path
 
 🌐 Introduction to Web Development
 
 🧱 HTML Basics
 
-🔲 HTML Block & Inline Elements
+🧩 Block & Inline Elements
 
-🪟 HTML Iframes
+🖼️ HTML Iframes
 
-🎨 CSS Fundamentals
+🎨 CSS Basics
 
-🧩 CSS Flexbox & Grid
+📐 Flexbox & Grid Layout Systems
 
 📦 CSS Box Model
 
-✨ CSS Pseudo-Classes, Transitions & Animations
+🎞️ CSS Pseudo-Classes, Transitions & Animations
 
-🧰 Bootstrap Fundamentals
+🅱️ Bootstrap Fundamentals
 
 📱 Responsive CSS & Media Queries
 
-🗂️ Repository Structure
-🏷️ Branch Name	📘 Topic Covered
-main	README and overall progress
-intro-to-web-dev	3-Tier Architecture, localhost, ports, and basic HTML setup
-html	HTML basics – headings, paragraphs, tables, and images
-html-block-&inline-elements	Block vs inline behavior, attributes, and layout
-html-iframes	Embedding external websites, maps, and videos
-css	CSS fundamentals – syntax, selectors, and backgrounds
-flex	CSS Flexbox layout system
-css-model	CSS Box Model – margin, padding, borders, gradients
-css-classes	Pseudo-classes, transitions, and tooltips
-bootstrap	Responsive containers, grid system, and components
-responsive-css	Filters, responsive design, and media queries
-🧩 Assignments
-📅 Date	🧠 Assignment	📝 Description
-Oct 9	Introduction to Web Development	Built a timetable using the <table> element
-Oct 9	HTML Basics	Designed a simple webpage with foundational HTML
-Oct 10	Block & Inline Elements	Practiced layout behaviors using inline/block
-Oct 10	HTML Iframes	Embedded YouTube videos and Google Maps
-Oct 16	CSS Basics	Applied basic selectors and styling
-Oct 16	Flexbox & Grid Layouts	Created responsive card and calculator layouts
-Oct 31	CSS Box Model	Styled calculator layout using Grid and gradients
-Oct 31	Pseudo-Classes & Animations	Built hover, active, and tooltip animations
-Nov (Ongoing)	Bootstrap Components	Implemented grids, utilities, and responsive designs
+🗂️ Repository Structure (Branch-wise)
+🌿 Branch Name	📚 Topic Covered
+main	Overall README & progress summary
+intro-to-web-dev	Architecture, localhost, ports, basic HTML
+html	HTML basics: headings, tables, images, paragraphs
+html-block-&inline-elements	Block/inline/inline-block elements
+html-iframes	YouTube, Maps & embedded media
+css	CSS selectors, syntax, fonts, backgrounds
+flex	Flexbox: axes, alignment, wrapping
+css-model	Box Model: margin, padding, borders, shadows
+css-classes	Pseudo-classes, transitions, transforms
+bootstrap	Grid system, utilities, cards, responsive elements
+responsive-css	Media queries, responsive layouts
+📝 Assignments
+📅 Date	📘 Assignment	🧾 Description
+Oct 9	Introduction to Web Development	Built timetable using <table>
+Oct 9	HTML Basics	Designed a basic webpage layout
+Oct 10	Block & Inline Elements	Practiced layout behavior
+Oct 10	HTML Iframes	Embedded Google Maps & YouTube
+Oct 16	CSS Basics	Applied core styling & selectors
+Oct 16	Flexbox & Grid	Built responsive card layouts
+Oct 31	CSS Box Model	Calculator UI using CSS Grid & gradients
+Oct 31	Pseudo-Classes & Animations	Tooltip, hover animations, transforms
+Nov (Ongoing)	Bootstrap Components	Responsive grid, forms, cards
 📆 Daily Progress Timeline
-🗓️ Oct 9 – Introduction to Web Development
+🎓 Oct 9 – Introduction to Web Development
 
-Understood 3-Tier Architecture
+Learned 3-Tier Architecture
 
-Explored frontend vs backend
+Understood frontend vs backend
 
-Practiced tables, paragraphs, images
+Practiced HTML tables, images, paragraphs
 
-Task: Build a timetable using <table>
+➤ Task: Build a timetable using <table>
 
-🗓️ Oct 10 – HTML Block & Inline Elements
+🧱 Oct 10 – HTML Block & Inline Elements
 
-Learned inline vs block behavior
+Understood element behavior
 
-Worked with forms, dropdowns, lists
+Created dropdowns, forms & lists
 
-Task: Demonstrate block, inline, and inline-block usage
+➤ Task: Show block vs inline differences
 
-🗓️ Oct 13 – Introduction to CSS
+🎨 Oct 13 – Introduction to CSS
 
-Explored types of CSS: inline, internal, external
+Types of CSS
 
-Practiced selectors, margins, padding
+Selectors, margins, padding
 
-Task: Style a webpage layout
+➤ Task: Style a webpage layout
 
-🗓️ Oct 16 – Flexbox & Grid Layouts
+📐 Oct 16 – Flexbox & Grid
 
-Implemented alignment, wrapping, justification
+Alignment, wrapping, grid areas
 
-Designed responsive layouts
+CSS animations, transforms
 
-Task: Calculator UI using Grid
+➤ Task: Calculator UI using Grid
 
-🗓️ Oct 30 – CSS Box Model
+📦 Oct 30 – CSS Box Model
 
-Revised margins, borders, shadows, gradients
+Margin, padding, border, shadows
 
-Task: Gradient-based calculator layout
+➤ Task: Gradient calculator layout
 
-🗓️ Oct 31 – Pseudo-Classes & Animations
+🎬 Oct 31 – Pseudo-Classes & Animations
 
-Implemented hover, focus, active states
+Hover, active, focus
 
-Added tooltips and animations
+Tooltips, diagonal animation
 
-Task: Animate elements using transform & transition
+➤ Task: Animate an element
 
-🗓️ Nov – Bootstrap Fundamentals
+🅱️ Nov – Bootstrap Fundamentals
 
-Explored containers, grid system, typography
+Grid system, spacing utilities
 
-Practiced responsive utilities and breakpoints
+Cards, buttons, containers
 
-Task: Build a responsive Bootstrap webpage
+➤ Task: Build responsive page using Bootstrap
 
-🌍 Upcoming Topics
+🛠️ Upcoming Topics
 
-Responsive Design Architecture
+📱 Responsive Design Architecture
 
-Mobile-first workflow & device breakpoints
+📏 Device Breakpoints
 
-Complex Media Queries
+🧭 Media Query Patterns
 
-Performance Optimization
+⚡ Web Performance Optimization
 
-🙌 Acknowledgment
+🙏 Acknowledgment
 
-Grateful to
-💡 Mr. Sahil Kumar & Mr. Deepak Prasad
-for structured mentorship, engaging sessions, and valuable feedback that built a strong foundation in frontend development.
+Special thanks to Mr. Sahil Kumar and Mr. Deepak Prasad for their continuous support, hands-on learning sessions, and guidance that helped build strong frontend development fundamentals.
 
-✍️ Author
+✍️ Author Information
 
-👨‍💻 Yuvraj Singh
-🎓 Frontend Development (HTML, CSS, Bootstrap)
-🏫 GLA University, Mathura
-🧑‍🏫 Mentors: Sahil Kumar & Deepak Prasad
+Author: Yuvraj Singh
+Course: Frontend Development (HTML, CSS, Bootstrap, JavaScript)
+Mentors: Sahil Kumar & Deepak Prasad
+Institution: 🏫 GLA University, Mathura
