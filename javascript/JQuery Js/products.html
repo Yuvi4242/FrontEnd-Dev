@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Q2 - Product Highlight</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .product { padding:12px; border:1px solid #ccc; margin:8px; display:inline-block; width:170px; vertical-align:top; }
+    .highlight { background:#fff3b0; }
+    .selected { border:2px solid #007bff; box-shadow:0 0 6px rgba(0,123,255,0.2); }
+    .discount { color:#d6336c; font-weight:bold; }
+    .more { display:none; font-size:12px; margin-top:6px; }
+  </style>
+</head>
+<body>
+  <main>
+    <header><h1>Products</h1></header>
+
+    <section id="product-list">
+      <div class="product" data-name="Laptop" data-price="50000">
+        <h3 class="title">Laptop</h3>
+        <p class="price">₹50,000</p>
+        <button class="fav">♥</button>
+        <span class="badge" data-discount="10">10% off</span>
+        <p class="more">16GB RAM · 512GB SSD</p>
+      </div>
+
+      <div class="product" data-name="Mobile" data-price="20000" data-stock="0">
+        <h3 class="title">Mobile</h3>
+        <p class="price">₹20,000</p>
+        <button class="fav">♥</button>
+        <span class="badge" data-discount="0">No discount</span>
+        <p class="more">6.5" Display · 128GB</p>
+      </div>
+
+      <div class="product" data-name="Shoes" data-price="2500">
+        <h3 class="title">Shoes</h3>
+        <p class="price">₹2,500</p>
+        <button class="fav">♥</button>
+        <span class="badge" data-discount="20">20% off</span>
+        <p class="more">Running Shoes · Size range</p>
+      </div>
+
+      <div class="product" data-name="Watch" data-price="3000">
+        <h3 class="title">Watch</h3>
+        <p class="price">₹3,000</p>
+        <button class="fav">♥</button>
+        <span class="badge" data-discount="5">5% off</span>
+        <p class="more">Water-resistant · Warranty</p>
+      </div>
+
+      <div class="product" data-name="Backpack" data-price="1500">
+        <h3 class="title">Backpack</h3>
+        <p class="price">₹1,500</p>
+        <button class="fav">♥</button>
+        <span class="badge" data-discount="0">No discount</span>
+        <p class="more">Laptop compartment · Durable</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="q2-products.js"></script

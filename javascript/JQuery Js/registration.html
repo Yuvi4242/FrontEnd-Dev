@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Q10 Registration</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .err{border:2px solid red;}
+    .ok{border:2px solid green;}
+    .msg{color:green;margin-top:8px;}
+  </style>
+</head>
+<body>
+  <h1>Register</h1>
+  <form id="reg">
+    <div><label>Name</label><input id="name" /></div>
+    <div><label>Email</label><input id="email" /></div>
+    <div><label>Password</label><input id="pass" type="password" /></div>
+    <div><label>Confirm Email</label><input id="email2" /></div>
+    <div><label>Phone</label><input id="phone" /></div>
+    <button type="submit">Submit</button>
+  </form>
+  <div id="result" class="msg"></div>
+
+  <script src="q10.js"></script>
+</body>
+</html>

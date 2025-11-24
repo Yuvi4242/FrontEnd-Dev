@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Q9 Multi jQuery</title>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .widget{border:1px solid #ddd;padding:12px;margin:8px;display:inline-block;width:180px;}
+    .active{background:#ffeaa7;}
+    .tooltip{position:absolute;background:#333;color:#fff;padding:6px;border-radius:4px;display:none;font-size:12px;}
+  </style>
+</head>
+<body>
+  <h1>Widgets Dashboard</h1>
+
+  <div id="v1-area">
+    <div class="widget" id="w1">Slider 1</div>
+    <div class="widget" id="w2">Slider 2</div>
+    <div class="widget" id="w3">Slider 3</div>
+  </div>
+
+  <div id="v2-area">
+    <div class="widget v2" id="m1">Modal 1</div>
+    <div class="widget v2" id="m2">Modal 2</div>
+    <div class="widget v2" id="m3">Modal 3</div>
+  </div>
+
+  <div id="modal" style="display:none;position:fixed;left:50%;top:30%;transform:translate(-50%,-30%);background:#fff;border:1px solid #888;padding:20px;box-shadow:0 4px 12px rgba(0,0,0,0.2);">Modal Content <button id="closeModal">Close</button></div>
+
+  <div id="tooltip" class="tooltip"></div>
+
+  <script src="q9.js"></script>
+</body>
+</html>

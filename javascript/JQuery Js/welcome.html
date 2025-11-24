@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Q1 - Welcome Greeting</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="q1-welcome.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1 id="greeting">Welcome!</h1>
+      <p id="sub-msg">We're glad you're here.</p>
+    </header>
+
+    <section aria-labelledby="controls">
+      <h2 id="controls">Controls</h2>
+      <button id="change-greet">Change Greeting</button>
+      <button id="toggle-welcome">Toggle Welcome Message</button>
+      <button id="show-time">Show Current Time</button>
+      <nav>
+        <ul>
+          <li><a href="#" id="help">Help</a></li>
+          <li><a href="#" id="contact">Contact</a></li>
+          <li><a href="#" id="about">About</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <aside id="welcomeBox">
+      <p>This is a friendly welcome message box. Click on the greeting above to see an alert.</p>
+    </aside>
+
+    <footer>
+      <small>© Example Site</small>
+    </footer>
+  </main>
+
+  <script src="q1-welcome.js"></script>
+</body>
+</html>

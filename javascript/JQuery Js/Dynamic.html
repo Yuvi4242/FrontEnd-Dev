@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Q8 Blog Admin</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .post{border:1px solid #ccc;padding:10px;margin:8px;}
+    .featured{border-color:#ffc107;background:#fff8e1;}
+    .tag{color:#6c757d;font-size:12px;margin:4px 0;}
+  </style>
+</head>
+<body>
+  <h1>Blog Admin</h1>
+  <input id="title" placeholder="Post title" />
+  <button id="add">Add New Post</button>
+  <button id="prepend">Prepend Featured</button>
+  <button id="remove">Remove Last Post</button>
+  <input id="tagtext" placeholder="Tag text" />
+  <button id="addtag">Add Tag to Last</button>
+
+  <div id="posts">
+    <article class="post">Understanding JavaScript Closures</article>
+    <article class="post">Intro to CSS Grid</article>
+    <article class="post">React Component Patterns</article>
+    <article class="post">Node.js Streams</article>
+    <article class="post">Writing Tests in Jest</article>
+  </div>
+
+  <script src="q8.js"></script>
+</body>
+</html>

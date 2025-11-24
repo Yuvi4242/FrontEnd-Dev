@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Q6 Subscriptions</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .topic{border:1px solid #ccc;padding:8px;margin:6px;}
+    .on{background:#d4ffd8;}
+    .msg{color:green;margin-top:8px;}
+    .btn{margin-right:6px;}
+  </style>
+</head>
+<body>
+  <h1>Subscriptions</h1>
+
+  <button id="sub" class="btn">Subscribe</button>
+  <button id="unsub" class="btn">Unsubscribe</button>
+  <button id="add" class="btn">Add Topic</button>
+  <button id="remove" class="btn">Remove Last</button>
+
+  <div id="topics">
+    <div class="topic" data-topic="news">News <button class="toggle">Toggle</button></div>
+    <div class="topic" data-topic="offers">Offers <button class="toggle">Toggle</button></div>
+    <div class="topic" data-topic="alerts">Alerts <button class="toggle">Toggle</button></div>
+    <div class="topic" data-topic="updates">Updates <button class="toggle">Toggle</button></div>
+    <div class="topic" data-topic="events">Events <button class="toggle">Toggle</button></div>
+  </div>
+
+  <div id="message" class="msg"></div>
+
+  <script src="q6.js"></script>
+</body>
+</html>

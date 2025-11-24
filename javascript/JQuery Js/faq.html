@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Q3 - Interactive FAQ</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    .question { cursor:pointer; padding:8px; border-bottom:1px solid #eee; }
+    .answer { display:none; padding:8px 12px; background:#f9f9f9; }
+    input.answer-input { display:block; margin-top:6px; }
+    .focused { background:#e6f7ff; }
+  </style>
+</head>
+<body>
+  <main>
+    <header><h1>FAQ</h1></header>
+    <section id="faqs">
+      <div class="faq">
+        <h3 class="question">What is this site?<input class="answer-input" type="text"></h3>
+        <div class="answer">This site is a demo.</div>
+      </div>
+
+      <div class="faq">
+        <h3 class="question">How to use?<input class="answer-input" type="text"></h3>
+        <div class="answer">Click to toggle answers.</div>
+      </div>
+
+      <div class="faq">
+        <h3 class="question">Contribute?<input class="answer-input" type="text"></h3>
+        <div class="answer">Yes, contributions welcome.</div>
+      </div>
+
+      <div class="faq">
+        <h3 class="question">Supported browsers?<input class="answer-input" type="text"></h3>
+        <div class="answer">Modern browsers supported.</div>
+      </div>
+
+      <div class="faq">
+        <h3 class="question">Contact?<input class="answer-input" type="text"></h3>
+        <div class="answer">support@example.com</div>
+      </div>
+    </section>
+
+    <button id="collapse-all">Collapse All</button>
+  </main>
+
+  <script src="q3-faq.js"></script>
+</body>
+</html>
