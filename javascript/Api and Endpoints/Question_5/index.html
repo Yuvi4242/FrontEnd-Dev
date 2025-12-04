@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Q5 - College Timetable Viewer (Fetch)</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    select { padding: 6px; }
+    table { border-collapse: collapse; width: 100%; max-width: 600px; margin-top: 15px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    .message { margin-top: 15px; color: #555; }
+  </style>
+</head>
+<body>
+  <h1>Q5: College Timetable Viewer</h1>
+  <p>Run JSON Server on port <strong>3005</strong>:</p>
+  <pre>json-server --watch db.json --port 3005</pre>
+
+  <label for="daySelect">Select Day:</label>
+  <select id="daySelect">
+    <option value="Monday">Monday</option>
+    <option value="Tuesday">Tuesday</option>
+    <option value="Wednesday">Wednesday</option>
+    <option value="Thursday">Thursday</option>
+    <option value="Friday">Friday</option>
+    <option value="Saturday">Saturday</option>
+  </select>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Faculty</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody id="timetableBody"></tbody>
+  </table>
+
+  <div id="message" class="message"></div>
+
+  <script>
+    const API_URL = "http://localhost:3005/timetable";
+
+    const daySelect = document.getElementById("daySelect");
+    const tbody = document.getElementById("timetableBody");
+    const message = document.getElementById("message");
+
+    async function loadTimetable(day) {
+      tbody.innerHTML = "<tr><td colspan='3'>Loading...</td></tr>";
+      message.textContent = "";
+
+      try {
+        const res = await fetch(API_URL + "?day=" + encodeURIComponent(day));
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await res.json();
+
+        tbody.innerHTML = "";
+        if (!data || data.length === 0) {
+          message.textContent = "No classes today.";
+          return;
+        }
+
+        data.forEach(item => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${item.subject}</td>
+            <td>${item.faculty}</td>
+            <td>${item.time}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      } catch (err) {
+        tbody.innerHTML = "";
+        message.textContent = "Failed to load timetable.";
+      }
+    }
+
+    daySelect.addEventListener("change", function () {
+      loadTimetable(this.value);
+    });
+
+    // initial load
+    loadTimetable(daySelect.value);
+  </script>
+</body>
+</html>

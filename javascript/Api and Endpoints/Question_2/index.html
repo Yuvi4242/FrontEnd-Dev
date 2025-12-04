@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Q2 - Employee Status Dashboard (XMLHttpRequest)</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    table { border-collapse: collapse; width: 100%; max-width: 600px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
+    .status-active { color: green; font-weight: bold; }
+    .status-inactive { color: red; font-weight: bold; }
+    .error { color: #c00; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Q2: Employee Status Dashboard</h1>
+  <p>Run JSON Server on port <strong>3002</strong>:</p>
+  <pre>json-server --watch db.json --port 3002</pre>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Toggle</th>
+      </tr>
+    </thead>
+    <tbody id="employeeBody"></tbody>
+  </table>
+
+  <div id="error" class="error"></div>
+
+  <script>
+    const API_URL = "http://localhost:3002/employees";
+
+    function fetchEmployees() {
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", API_URL);
+      xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          const employees = JSON.parse(xhr.responseText);
+          renderEmployees(employees);
+        } else {
+          document.getElementById("error").textContent = "Failed to load employees.";
+        }
+      };
+      xhr.onerror = function () {
+        document.getElementById("error").textContent = "Network error while loading employees.";
+      };
+      xhr.send();
+    }
+
+    function renderEmployees(employees) {
+      const tbody = document.getElementById("employeeBody");
+      tbody.innerHTML = "";
+      employees.forEach(emp => {
+        const tr = document.createElement("tr");
+
+        const tdId = document.createElement("td");
+        tdId.textContent = emp.id;
+
+        const tdName = document.createElement("td");
+        tdName.textContent = emp.name;
+
+        const tdStatus = document.createElement("td");
+        tdStatus.textContent = emp.status;
+        tdStatus.className = emp.status === "active" ? "status-active" : "status-inactive";
+
+        const tdToggle = document.createElement("td");
+        const toggle = document.createElement("input");
+        toggle.type = "checkbox";
+        toggle.checked = emp.status === "active";
+        toggle.dataset.id = emp.id;
+        toggle.dataset.statusCellId = "status-" + emp.id;
+
+        tdStatus.id = "status-" + emp.id;
+
+        toggle.addEventListener("change", function (e) {
+          const id = emp.id;
+          const currentStatus = emp.status;
+          const newStatus = currentStatus === "active" ? "inactive" : "active";
+
+          // Optimistic UI update
+          const oldStatusText = tdStatus.textContent;
+          const oldClass = tdStatus.className;
+          tdStatus.textContent = newStatus;
+          tdStatus.className = newStatus === "active" ? "status-active" : "status-inactive";
+          document.getElementById("error").textContent = "";
+
+          const xhr = new XMLHttpRequest();
+          xhr.open("PATCH", API_URL + "/" + id);
+          xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+          xhr.onload = function () {
+            if (!(xhr.status >= 200 && xhr.status < 300)) {
+              // revert UI
+              tdStatus.textContent = oldStatusText;
+              tdStatus.className = oldClass;
+              toggle.checked = currentStatus === "active";
+              document.getElementById("error").textContent = "Failed to update status. Reverted.";
+            } else {
+              emp.status = newStatus; // update local object only on success
+            }
+          };
+          xhr.onerror = function () {
+            tdStatus.textContent = oldStatusText;
+            tdStatus.className = oldClass;
+            toggle.checked = currentStatus === "active";
+            document.getElementById("error").textContent = "Network error. Status reverted.";
+          };
+          xhr.send(JSON.stringify({ status: newStatus }));
+        });
+
+        tdToggle.appendChild(toggle);
+
+        tr.appendChild(tdId);
+        tr.appendChild(tdName);
+        tr.appendChild(tdStatus);
+        tr.appendChild(tdToggle);
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    fetchEmployees();
+  </script>
+</body>
+</html>

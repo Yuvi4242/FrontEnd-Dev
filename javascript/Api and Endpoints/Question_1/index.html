@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Q1 - Live Product Search (jQuery AJAX)</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    .search-box { margin-bottom: 15px; }
+    #searchInput { padding: 8px; width: 300px; }
+    .product-list { margin-top: 10px; display: grid; gap: 10px; }
+    .product-item { display: flex; align-items: center; border: 1px solid #ddd; padding: 10px; border-radius: 4px; }
+    .product-item img { margin-right: 10px; }
+    .loading { display: none; color: #555; margin-top: 5px; }
+    .message { margin-top: 10px; color: #c00; }
+  </style>
+</head>
+<body>
+  <h1>Q1: Live Search /products</h1>
+  <p>Make sure JSON Server is running on port <strong>3001</strong>:</p>
+  <pre>json-server --watch db.json --port 3001</pre>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search products..." />
+    <div id="loading" class="loading">Loading...</div>
+  </div>
+
+  <div id="results" class="product-list"></div>
+  <div id="message" class="message"></div>
+
+  <script>
+    const API_URL = "http://localhost:3001/products";
+
+    let currentRequest = null;
+
+    function renderProducts(products) {
+      const $results = $("#results");
+      const $message = $("#message");
+      $results.empty();
+      $message.text("");
+
+      if (!products || products.length === 0) {
+        $message.text("No products found");
+        return;
+      }
+
+      products.forEach(p => {
+        const item = `
+          <div class="product-item">
+            <img src="${p.image}" alt="${p.name}" width="80" height="80" />
+            <div>
+              <div><strong>${p.name}</strong></div>
+              <div>₹${p.price}</div>
+            </div>
+          </div>
+        `;
+        $results.append(item);
+      });
+    }
+
+    function searchProducts(query) {
+      $("#loading").show();
+      $("#message").text("");
+
+      // Abort previous request if still running (optional)
+      if (currentRequest && currentRequest.readyState !== 4) {
+        currentRequest.abort();
+      }
+
+      currentRequest = $.ajax({
+        url: API_URL,
+        method: "GET",
+        data: { q: query }, // ?q=value
+        success: function (data) {
+          renderProducts(data);
+        },
+        error: function () {
+          $("#message").text("Error loading products.");
+        },
+        complete: function () {
+          $("#loading").hide();
+        }
+      });
+    }
+
+    // Initial load with all products
+    $(document).ready(function () {
+      searchProducts("");
+
+      $("#searchInput").on("input", function () {
+        const value = $(this).val();
+        searchProducts(value);
+      });
+    });
+  </script>
+</body>
+</html>

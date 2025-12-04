@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Q4 - Multi-API Dashboard (Fetch + Promise.all)</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    .dashboard { display: flex; gap: 20px; }
+    .card { border: 1px solid #ddd; padding: 15px; border-radius: 4px; width: 150px; text-align: center; }
+    .skeleton { background: #eee; height: 24px; margin-top: 10px; border-radius: 4px; }
+    .warning { color: #c00; margin-top: 15px; }
+    .value { font-size: 24px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Q4: Multi-API Dashboard</h1>
+  <p>Run JSON Server on port <strong>3004</strong>:</p>
+  <pre>json-server --watch db.json --port 3004</pre>
+
+  <div class="dashboard">
+    <div class="card">
+      <div>Total Users</div>
+      <div id="usersValue" class="value skeleton"></div>
+    </div>
+    <div class="card">
+      <div>Total Orders</div>
+      <div id="ordersValue" class="value skeleton"></div>
+    </div>
+    <div class="card">
+      <div>Total Products</div>
+      <div id="productsValue" class="value skeleton"></div>
+    </div>
+  </div>
+
+  <div id="warning" class="warning"></div>
+
+  <script>
+    const BASE_URL = "http://localhost:3004";
+
+    const usersEl = document.getElementById("usersValue");
+    const ordersEl = document.getElementById("ordersValue");
+    const productsEl = document.getElementById("productsValue");
+    const warningEl = document.getElementById("warning");
+
+    function setLoadingState() {
+      [usersEl, ordersEl, productsEl].forEach(el => {
+        el.textContent = "";
+        el.classList.add("skeleton");
+      });
+      warningEl.textContent = "";
+    }
+
+    function setValue(el, value) {
+      el.classList.remove("skeleton");
+      el.textContent = value;
+    }
+
+    async function loadDashboard() {
+      setLoadingState();
+
+      const usersPromise = fetch(BASE_URL + "/users");
+      const ordersPromise = fetch(BASE_URL + "/orders");
+      const productsPromise = fetch(BASE_URL + "/products");
+
+      let someFailed = false;
+
+      try {
+        const responses = await Promise.all([usersPromise, ordersPromise, productsPromise]);
+        const [usersRes, ordersRes, productsRes] = responses;
+
+        if (!usersRes.ok || !ordersRes.ok || !productsRes.ok) {
+          someFailed = true;
+        }
+
+        const [users, orders, products] = await Promise.all([
+          usersRes.ok ? usersRes.json() : Promise.resolve(null),
+          ordersRes.ok ? ordersRes.json() : Promise.resolve(null),
+          productsRes.ok ? productsRes.json() : Promise.resolve(null)
+        ]);
+
+        setValue(usersEl, users ? users.length : "-");
+        setValue(ordersEl, orders ? orders.length : "-");
+        setValue(productsEl, products ? products.length : "-");
+
+      } catch (err) {
+        someFailed = true;
+        setValue(usersEl, "-");
+        setValue(ordersEl, "-");
+        setValue(productsEl, "-");
+      }
+
+      if (someFailed) {
+        warningEl.textContent = "Some data could not be loaded.";
+      }
+    }
+
+    loadDashboard();
+  </script>
+</body>
+</html>

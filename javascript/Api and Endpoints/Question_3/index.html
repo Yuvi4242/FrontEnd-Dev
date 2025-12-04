@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Q3 - Task Manager (jQuery AJAX)</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    .filters { margin-bottom: 15px; }
+    ul { list-style: none; padding: 0; }
+    li { border: 1px solid #ddd; margin-bottom: 8px; padding: 8px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; }
+    .completed { text-decoration: line-through; color: #777; }
+    .priority { font-size: 0.9em; }
+    .message { margin-top: 10px; color: #c00; }
+  </style>
+</head>
+<body>
+  <h1>Q3: Task Manager</h1>
+  <p>Run JSON Server on port <strong>3003</strong>:</p>
+  <pre>json-server --watch db.json --port 3003</pre>
+
+  <div class="filters">
+    <label for="filter">Filter:</label>
+    <select id="filter">
+      <option value="all">All</option>
+      <option value="low">Low Priority</option>
+      <option value="medium">Medium Priority</option>
+      <option value="high">High Priority</option>
+      <option value="completed">Completed</option>
+    </select>
+  </div>
+
+  <ul id="taskList"></ul>
+  <div id="message" class="message"></div>
+
+  <script>
+    const API_URL = "http://localhost:3003/tasks";
+
+    function buildQuery(filter) {
+      let params = {};
+      if (filter === "low") params.priority = "Low";
+      else if (filter === "medium") params.priority = "Medium";
+      else if (filter === "high") params.priority = "High";
+      else if (filter === "completed") params.completed = true;
+      return params;
+    }
+
+    function loadTasks() {
+      const filter = $("#filter").val();
+      const params = buildQuery(filter);
+
+      $("#message").text("");
+      $("#taskList").empty().append("<li>Loading...</li>");
+
+      $.ajax({
+        url: API_URL,
+        method: "GET",
+        data: params,
+        success: function (tasks) {
+          renderTasks(tasks);
+        },
+        error: function () {
+          $("#taskList").empty();
+          $("#message").text("Error loading tasks.");
+        }
+      });
+    }
+
+    function renderTasks(tasks) {
+      const $list = $("#taskList");
+      $list.empty();
+
+      if (!tasks || tasks.length === 0) {
+        $list.append("<li>No tasks found.</li>");
+        return;
+      }
+
+      tasks.forEach(task => {
+        const li = $(`
+          <li>
+            <div>
+              <span class="title ${task.completed ? "completed" : ""}">${task.title}</span>
+              <div class="priority">Priority: ${task.priority} | Completed: ${task.completed}</div>
+            </div>
+            <div>
+              <label>
+                <input type="checkbox" class="toggleCompleted" ${task.completed ? "checked" : ""} data-id="${task.id}" />
+                Done
+              </label>
+            </div>
+          </li>
+        `);
+        $list.append(li);
+      });
+    }
+
+    function toggleCompleted(id, currentValue, checkboxElem) {
+      const newValue = !currentValue;
+
+      $.ajax({
+        url: API_URL + "/" + id,
+        method: "PATCH",
+        contentType: "application/json",
+        data: JSON.stringify({ completed: newValue }),
+        success: function () {
+          loadTasks();
+        },
+        error: function () {
+          $("#message").text("Failed to update task.");
+          // revert checkbox
+          $(checkboxElem).prop("checked", currentValue);
+        }
+      });
+    }
+
+    $(document).ready(function () {
+      loadTasks();
+
+      $("#filter").on("change", loadTasks);
+
+      $("#taskList").on("change", ".toggleCompleted", function () {
+        const id = $(this).data("id");
+        const currentValue = !this.checked; // because it has already toggled
+        toggleCompleted(id, currentValue, this);
+      });
+    });
+  </script>
+</body>
+</html>

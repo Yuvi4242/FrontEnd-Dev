@@ -1,0 +1,9 @@
+{
+  "users": [
+    { "id": 1, "name": "Existing User1", "email": "user1@example.com", "password": "pass123" },
+    { "id": 2, "name": "Existing User2", "email": "user2@example.com", "password": "pass123" },
+    { "id": 3, "name": "Existing User3", "email": "user3@example.com", "password": "pass123" },
+    { "id": 4, "name": "Existing User4", "email": "user4@example.com", "password": "pass123" },
+    { "id": 5, "name": "Existing User5", "email": "user5@example.com", "password": "pass123" }
+  ]
+}
